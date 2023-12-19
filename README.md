@@ -1,7 +1,7 @@
 
 ### Trabalho Pós Graduação Engenharia de dados | Infnet | Infraestrutura Cassandra ###
 
-# 1. Explique, com suas palavras, as diferenças entre bases de dados SQL e NoSQL, apresentando exemplos de uso para cada uma delas.
+## 1. Explique, com suas palavras, as diferenças entre bases de dados SQL e NoSQL, apresentando exemplos de uso para cada uma delas.
 
 Bancos de Dados SQL:
 
@@ -22,7 +22,7 @@ MongoDB (documento), Redis (chave-valor), Neo4j (grafo), Cassandra (Banco de Dad
 Resumindo, SQL é como uma planilha organizada, ótima para estruturas de dados fixas, enquanto NoSQL é mais flexível, adequado para situações em que a estrutura dos dados pode mudar frequentemente, como em aplicativos web dinâmicos.
 
 
-# 2.Escolha uma base de dados pública brasileira, que será o alvo para condução de seu Projeto de Disciplina. Esta base será carregada para uma infraestrutura Cassandra, para dar suporte à geração de um processo de análise de dados.
+## 2.Escolha uma base de dados pública brasileira, que será o alvo para condução de seu Projeto de Disciplina. Esta base será carregada para uma infraestrutura Cassandra, para dar suporte à geração de um processo de análise de dados.
 
 A base escolhida é de avaliações de filmes da Netflix, ela é composta por dois arquivos CSV, em um deles temos os nomes dos filmes e ano de gravação, na outra têm os usuários que avaliaram e a nota de cada avaliação. 
 Para a execução desse trabalho foi feita a junção das duas bases construindo o dataset avaliacoes_por_filme.
@@ -31,7 +31,7 @@ A transformação dos datasets é feita nesse notebook:
 Incluir link notebook 1
 
 
-# 3.Defina pelo menos uma pergunta de negócio que será o objetivo de seu processo de análise a ser desenvolvido a partir dos dados armazenados na infraestrutura Cassandra.
+## 3.Defina pelo menos uma pergunta de negócio que será o objetivo de seu processo de análise a ser desenvolvido a partir dos dados armazenados na infraestrutura Cassandra.
 
 Algumas perguntas que devem ser respondidas neste trabalho:
 
