@@ -36,17 +36,23 @@ Incluir link notebook 1
 Algumas perguntas que devem ser respondidas neste trabalho:
 
 “Qual a média de avaliação de cada filme?”
+
 “Quais os filmes que possuem a média de avaliação (rating) maior que 4,5?”
+
 “Qual a quantidade de avaliações que cada filme possui?”
+
 “Qual a quantidade de avaliações que cada usuário fez?”
 
-Apresente um planejamento básico da infraestrutura necessária para comportar os dados que deseja importar.
+# 4.Apresente um planejamento básico da infraestrutura necessária para comportar os dados que deseja importar.
+
 Criação de Rede Docker:
+
 Criar Docker para facilitar a comunicação entre os containers do Cassandra. Isso pode ser feito usando o seguinte comando:
 
 # $docker network create --driver bridge cassandra-network
 
-Containers Cassandra:
+Container Cassandra:
+
 Criar containers Docker para o Cassandra utilizando a imagem oficial do Apache Cassandra disponível no Docker Hub. Exposição da porta 9042, necessária para comunicação, e o mapeamento de pasta local para uma determinada pasta do container, utilizei a pasta /tmp.
 
    docker run --name filmes: Criando o container “filmes”
@@ -55,12 +61,13 @@ Criar containers Docker para o Cassandra utilizando a imagem oficial do Apache C
 	/Users/julia/Downloads/Cassandra:/tmp: Mapeamento de diretórios
 	cassandra:4.1.3: Imagem que será utilizada.
 
-$docker run --name filmes --network cassandra-network -p 9042:9042 -v /Users/julia/Downloads/Cassandra:/tmp cassandra:4.1.3
+# $docker run --name filmes --network cassandra-network -p 9042:9042 -v /Users/julia/Downloads/Cassandra:/tmp cassandra:4.1.3
 
 Verificação do Status do Container:
 # $docker ps
 
 Teste de Conexão:
+
 Conectando ao container do Cassandra usando um cliente CQLSH para verificar se o banco de dados está acessível:
 # $docker exec -it filmes cqlsh
 
@@ -71,7 +78,6 @@ Conferência se o diretório foi mapeado corretamente:
 Criação do Keyspace, como era somente para a execução do trabalho foi feito com SimpleStrategy e fator de replicação 1:
 
 # $CREATE KEYSPACE filmes WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
-
 
 Criação da tabela avaliacoes_por_filme, primary key sendo Movie_id e chave de clusterização User_id:
 
