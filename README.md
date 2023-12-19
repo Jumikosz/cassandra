@@ -1,6 +1,9 @@
 
 ### Trabalho Pós Graduação Engenharia de dados | Infnet | Infraestrutura Cassandra ###
 
+Link do trabalho completo com imagens:
+https://docs.google.com/document/d/1iri_3uPtnfJLyjhNwL6Ke33D1CCGj_suWcVi6AP089w/edit?usp=sharing
+
 ## 1. Explique, com suas palavras, as diferenças entre bases de dados SQL e NoSQL, apresentando exemplos de uso para cada uma delas.
 
 Bancos de Dados SQL:
