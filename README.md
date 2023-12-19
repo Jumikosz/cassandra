@@ -9,6 +9,7 @@ Bancos de dados SQL usam um formato de tabela para organizar os dados, como se f
 Possuem um esquema estruturado e fixo, ou seja, a estrutura das tabelas é definida antes;
 Transações ACID: Garantem propriedades ACID (Atomicidade, Consistência, Isolamento e Durabilidade) para garantir a integridade dos dados.
 Aumentar a capacidade de um banco de dados SQL geralmente envolve a adição de mais recursos a um único servidor pois sua escalabilidade é vertical.
+
 Exemplo de Banco SQL:MySQL, PostgreSQL, Microsoft SQL Server.
 
 Bancos de Dados NoSQL:
@@ -19,6 +20,7 @@ Em alguns casos, eles podem sacrificar a consistência imediata em troca de uma 
 É fácil de escalar, necessita somente adicionar mais servidores à medida que a carga aumenta (escalabilidade horizontal).
 
 MongoDB (documento), Redis (chave-valor), Neo4j (grafo), Cassandra (Banco de Dados de Coluna)
+
 Resumindo, SQL é como uma planilha organizada, ótima para estruturas de dados fixas, enquanto NoSQL é mais flexível, adequado para situações em que a estrutura dos dados pode mudar frequentemente, como em aplicativos web dinâmicos.
 
 
@@ -71,13 +73,16 @@ Teste de Conexão:
 Conectando ao container do Cassandra usando um cliente CQLSH para verificar se o banco de dados está acessível:
 ### $docker exec -it filmes cqlsh
 
+
 Conferência se o diretório foi mapeado corretamente:
 
 ### $cd tmp/ - para entrar na pasta mapeada do container
 
+
 Criação do Keyspace, como era somente para a execução do trabalho foi feito com SimpleStrategy e fator de replicação 1:
 
 ### $CREATE KEYSPACE filmes WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
 
 Criação da tabela avaliacoes_por_filme, primary key sendo Movie_id e chave de clusterização User_id:
 
@@ -89,9 +94,11 @@ Criação da tabela avaliacoes_por_filme, primary key sendo Movie_id e chave de 
 ###    PRIMARY KEY ((Movie_ID), User_ID)
 ### );
 
+
 Cópia do arquivo avaliacoes_por_filme.csv para a tabela criada e comprovação de carga:
 
 ### $COPY avaliacoes_por_filme FROM '/tmp/avaliacoes_por_filme.csv' WITH DELIMITER =',' AND HEADER = TRUE;
+
 
 Após a carga de dados foi utilizado o DataSpell para fazer a conexão do Cassandra com Spark para serem feitas análises mais aprofundadas. Todas essas configurações estão no notebook abaixo:
 
