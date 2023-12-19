@@ -4,6 +4,9 @@
 Link do trabalho completo com imagens:
 https://docs.google.com/document/d/1iri_3uPtnfJLyjhNwL6Ke33D1CCGj_suWcVi6AP089w/edit?usp=sharing
 
+Link dos datasets:
+https://drive.google.com/drive/folders/17v5TvvxJZNV-gL8RxnE2lk_2v5rkjlcT?usp=sharing
+
 ## 1. Explique, com suas palavras, as diferenças entre bases de dados SQL e NoSQL, apresentando exemplos de uso para cada uma delas.
 
 Bancos de Dados SQL:
@@ -39,7 +42,7 @@ A base escolhida é de avaliações de filmes da Netflix, ela é composta por do
 Para a execução desse trabalho foi feita a junção das duas bases construindo o dataset avaliacoes_por_filme.
 A transformação dos datasets é feita nesse notebook:
 
-Incluir link notebook 1
+[Avaliacoes_por_filme](https://github.com/Jumikosz/cassandra/blob/main/avaliacoes_por_filme.ipynb)
 
 
 ## 3.Defina pelo menos uma pergunta de negócio que será o objetivo de seu processo de análise a ser desenvolvido a partir dos dados armazenados na infraestrutura Cassandra.
@@ -104,6 +107,8 @@ Cópia do arquivo avaliacoes_por_filme.csv para a tabela criada e comprovação 
 
 
 Após a carga de dados foi utilizado o DataSpell para fazer a conexão do Cassandra com Spark para serem feitas análises mais aprofundadas. Todas essas configurações estão no notebook abaixo:
+
+[cassandra_spark](https://github.com/Jumikosz/cassandra/blob/main/cassandra_spark.ipynb)
 
 
 
