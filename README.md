@@ -43,13 +43,13 @@ Algumas perguntas que devem ser respondidas neste trabalho:
 
 “Qual a quantidade de avaliações que cada usuário fez?”
 
-# 4.Apresente um planejamento básico da infraestrutura necessária para comportar os dados que deseja importar.
+## 4.Apresente um planejamento básico da infraestrutura necessária para comportar os dados que deseja importar.
 
 Criação de Rede Docker:
 
 Criar Docker para facilitar a comunicação entre os containers do Cassandra. Isso pode ser feito usando o seguinte comando:
 
-# $docker network create --driver bridge cassandra-network
+### $docker network create --driver bridge cassandra-network
 
 Container Cassandra:
 
@@ -61,37 +61,37 @@ Criar containers Docker para o Cassandra utilizando a imagem oficial do Apache C
 	/Users/julia/Downloads/Cassandra:/tmp: Mapeamento de diretórios
 	cassandra:4.1.3: Imagem que será utilizada.
 
-# $docker run --name filmes --network cassandra-network -p 9042:9042 -v /Users/julia/Downloads/Cassandra:/tmp cassandra:4.1.3
+### $docker run --name filmes --network cassandra-network -p 9042:9042 -v /Users/julia/Downloads/Cassandra:/tmp cassandra:4.1.3
 
 Verificação do Status do Container:
-# $docker ps
+### $docker ps
 
 Teste de Conexão:
 
 Conectando ao container do Cassandra usando um cliente CQLSH para verificar se o banco de dados está acessível:
-# $docker exec -it filmes cqlsh
+### $docker exec -it filmes cqlsh
 
 Conferência se o diretório foi mapeado corretamente:
 
-# $cd tmp/ - para entrar na pasta mapeada do container
+### $cd tmp/ - para entrar na pasta mapeada do container
 
 Criação do Keyspace, como era somente para a execução do trabalho foi feito com SimpleStrategy e fator de replicação 1:
 
-# $CREATE KEYSPACE filmes WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+### $CREATE KEYSPACE filmes WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
 
 Criação da tabela avaliacoes_por_filme, primary key sendo Movie_id e chave de clusterização User_id:
 
-# $CREATE TABLE avaliacoes_por_filme (
-#    Movie_ID INT,
-#    User_ID INT,
-#    Name TEXT,
-#    Rating SMALLINT,
-#    PRIMARY KEY ((Movie_ID), User_ID)
-# );
+### $CREATE TABLE avaliacoes_por_filme (
+###   Movie_ID INT,
+###    User_ID INT,
+###    Name TEXT,
+###    Rating SMALLINT,
+###    PRIMARY KEY ((Movie_ID), User_ID)
+### );
 
 Cópia do arquivo avaliacoes_por_filme.csv para a tabela criada e comprovação de carga:
 
-# $COPY avaliacoes_por_filme FROM '/tmp/avaliacoes_por_filme.csv' WITH DELIMITER =',' AND HEADER = TRUE;
+### $COPY avaliacoes_por_filme FROM '/tmp/avaliacoes_por_filme.csv' WITH DELIMITER =',' AND HEADER = TRUE;
 
 Após a carga de dados foi utilizado o DataSpell para fazer a conexão do Cassandra com Spark para serem feitas análises mais aprofundadas. Todas essas configurações estão no notebook abaixo:
 
